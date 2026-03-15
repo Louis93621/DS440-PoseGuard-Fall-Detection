@@ -1,0 +1,106 @@
+{
+  "csv_path": "/Users/louishsu/Desktop/DS 440 Project/Fall_Dataset/Fall/Bed/f_mask_b_1_keypoints_csv/B_D_0001_keypoints.csv",
+  "model_name": "rf",
+  "sequence_id": "B_D_0001_keypoints",
+  "summary": {
+    "decision": "Fall Event Detected",
+    "alert": true,
+    "n_events": 1,
+    "n_frames": 76,
+    "n_windows": 5,
+    "max_window_probability": 0.8770501341598732,
+    "mean_window_probability": 0.8316436533845619,
+    "positive_window_ratio": 1.0,
+    "baseline_config": {
+      "window": 30,
+      "stride": 10,
+      "conf_threshold": 0.2
+    },
+    "alert_config": {
+      "window_threshold": 0.5,
+      "min_positive_run": 3,
+      "merge_gap_windows": 1,
+      "cooldown_windows": 3,
+      "probability_smoothing": 3
+    },
+    "model_name": "rf",
+    "feature_count": 153
+  },
+  "events": [
+    {
+      "event_id": 1,
+      "event_type": "fall",
+      "start_window_index": 0,
+      "end_window_index": 4,
+      "duration_windows": 5,
+      "frame_start": 1,
+      "frame_end": 84,
+      "max_probability": 0.8770501341598732,
+      "mean_probability": 0.8316436533845619,
+      "max_smoothed_probability": 0.8497445736539669,
+      "severity": "medium"
+    }
+  ],
+  "window_results": [
+    {
+      "window_index": 0,
+      "frame_start": 1,
+      "frame_end": 30,
+      "n_window_frames": 30,
+      "start_row_index": 0,
+      "end_row_index": 30,
+      "fall_probability": 0.8186946673336728,
+      "smoothed_probability": 0.5363281819869695,
+      "binary_prediction": 1,
+      "predicted_label": "fall"
+    },
+    {
+      "window_index": 1,
+      "frame_start": 11,
+      "frame_end": 41,
+      "n_window_frames": 30,
+      "start_row_index": 10,
+      "end_row_index": 40,
+      "fall_probability": 0.7902898786272359,
+      "smoothed_probability": 0.8022084275067887,
+      "binary_prediction": 1,
+      "predicted_label": "fall"
+    },
+    {
+      "window_index": 2,
+      "frame_start": 21,
+      "frame_end": 56,
+      "n_window_frames": 30,
+      "start_row_index": 20,
+      "end_row_index": 50,
+      "fall_probability": 0.7976407365594577,
+      "smoothed_probability": 0.8208244884764211,
+      "binary_prediction": 1,
+      "predicted_label": "fall"
+    },
+    {
+      "window_index": 3,
+      "frame_start": 32,
+      "frame_end": 70,
+      "n_window_frames": 30,
+      "start_row_index": 30,
+      "end_row_index": 60,
+      "fall_probability": 0.8745428502425701,
+      "smoothed_probability": 0.8497445736539669,
+      "binary_prediction": 1,
+      "predicted_label": "fall"
+    },
+    {
+      "window_index": 4,
+      "frame_start": 42,
+      "frame_end": 84,
+      "n_window_frames": 30,
+      "start_row_index": 40,
+      "end_row_index": 70,
+      "fall_probability": 0.8770501341598732,
+      "smoothed_probability": 0.5838643281341478,
+      "binary_prediction": 1,
+      "predicted_label": "fall"
+    }
+  ]
+}
