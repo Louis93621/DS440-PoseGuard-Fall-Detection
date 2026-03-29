@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoseGuard Reviewer Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PoseGuard</p>
+        <h1>Reviewer Dashboard</h1>
+        <p class="subcopy">Live pose review, fall probability tracking, and confirmed event management from the Phase 4 backend.</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="connectionBadge" class="badge badge-muted">Connecting</span>
+        <a class="link-btn" href="/docs" target="_blank" rel="noreferrer">API Docs</a>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="panel live-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Live pose stream</p>
+            <h2>Skeleton View</h2>
+          </div>
+          <div class="panel-meta">
+            <span id="cameraIdPill" class="chip">camera —</span>
+            <span id="frameIdPill" class="chip">frame —</span>
+          </div>
+        </div>
+        <div class="canvas-shell">
+          <canvas id="skeletonCanvas"></canvas>
+          <div id="canvasEmpty" class="empty-state">Waiting for pose frames…</div>
+        </div>
+        <div class="mini-grid">
+          <div class="metric-card">
+            <span class="metric-label">Pose Confidence</span>
+            <strong id="poseConfValue">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Detected</span>
+            <strong id="poseDetectedValue">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Input FPS</span>
+            <strong id="poseFpsValue">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Video</span>
+            <strong id="videoPathValue">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel status-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Live backend state</p>
+            <h2>Inference Status</h2>
+          </div>
+          <span id="pipelineReadyPill" class="chip">ready —</span>
+        </div>
+
+        <div class="headline-metrics">
+          <div>
+            <span class="metric-label">Event State</span>
+            <div id="eventStateBadge" class="state-badge state-normal">NORMAL</div>
+          </div>
+          <div>
+            <span class="metric-label">Fall Probability</span>
+            <strong id="probabilityValue" class="probability-text">0.000</strong>
+          </div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-track">
+            <div id="probabilityBar" class="progress-fill"></div>
+            <div id="thresholdMarker" class="threshold-marker"></div>
+          </div>
+          <div class="progress-legend">
+            <span id="thresholdLabel">threshold 0.50</span>
+            <span id="windowLabel">window —</span>
+          </div>
+        </div>
+
+        <div class="sparkline-shell">
+          <canvas id="probabilityCanvas"></canvas>
+        </div>
+
+        <div class="mini-grid compact">
+          <div class="metric-card">
+            <span class="metric-label">Prediction</span>
+            <strong id="predictionLabel">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Peak Event Probability</span>
+            <strong id="eventPeakValue">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Current Event</span>
+            <strong id="currentEventValue">—</strong>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Cooldown</span>
+            <strong id="cooldownValue">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel events-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Persisted review queue</p>
+            <h2>Confirmed Events</h2>
+          </div>
+          <button id="refreshEventsBtn" class="link-btn" type="button">Refresh</button>
+        </div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Event ID</th>
+                <th>State</th>
+                <th>ACK</th>
+                <th>Peak Prob.</th>
+                <th>Confirmed At</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTableBody"></tbody>
+          </table>
+          <div id="eventsEmpty" class="empty-state inline">No confirmed events yet.</div>
+        </div>
+      </section>
+
+      <section class="panel snapshot-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Operational snapshot</p>
+            <h2>Backend Summary</h2>
+          </div>
+        </div>
+        <div class="snapshot-grid">
+          <div class="snapshot-item"><span>Backend Ready</span><strong id="readyValue">—</strong></div>
+          <div class="snapshot-item"><span>Inference Ready</span><strong id="inferenceReadyValue">—</strong></div>
+          <div class="snapshot-item"><span>Event Ready</span><strong id="eventReadyValue">—</strong></div>
+          <div class="snapshot-item"><span>Last Error</span><strong id="lastErrorValue">none</strong></div>
+          <div class="snapshot-item"><span>Frame Queue</span><strong id="frameQueueValue">—</strong></div>
+          <div class="snapshot-item"><span>Pose Queue</span><strong id="poseQueueValue">—</strong></div>
+          <div class="snapshot-item"><span>Inference In</span><strong id="inferenceInQueueValue">—</strong></div>
+          <div class="snapshot-item"><span>Inference Out</span><strong id="inferenceOutQueueValue">—</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
