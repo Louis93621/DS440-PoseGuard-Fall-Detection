@@ -1,38 +1,29 @@
-# PoseGuard Product-Hardened Dashboard
+# poseguard_product
 
-This version hardens the Streamlit dashboard for class demo and testing.
+This folder contains the **product-facing Streamlit UI** for PoseGuard.
 
-## What's new
-- step-by-step sidebar workflow
-- demo mode for a quick showcase sequence
-- system check / preflight validation before inference
-- calmer advanced settings with collapsed alert controls
-- diagnostics tab for runtime and reproducibility
-- user-facing error recovery messages
-- session report export
-- persistent privacy note
+## Purpose
+The Streamlit app presents PoseGuard from a user / caregiver perspective.
+
+It supports two views:
+- **Product Console** — original local CSV-based workflow
+- **Live Backend** — REST-connected view of the FastAPI backend
+
+## Key files
+- `app.py` — main Streamlit entry point
+- `pages/2_Live_Backend.py` — backend-connected page
+- `backend_client.py` — REST client for FastAPI integration
+- `live_backend_panel.py` — UI rendering helpers for live backend state and events
+- `infer.py` / `postprocess.py` — local/offline inference pipeline
+- `poseguard_core.py` — shared schema and keypoint constants
+- `assets/style.css` — custom product styling
 
 ## Run
 ```bash
-pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Expected files
-Keep these files in the same folder:
-- `app.py`
-- `infer.py`
-- `postprocess.py`
-- `poseguard_core.py`
-- `assets/style.css`
+## Notes
+If you want the **Product Console** page to auto-detect the baseline bundle, place `baseline_bundle.joblib` inside this folder or use the custom path input.
 
-Then point the app to:
-- `baseline_bundle.joblib`, or
-- a training output directory containing `metrics.json`
-
-## Best class demo flow
-1. Load your `baseline_bundle.joblib`
-2. Choose **Browse dataset**
-3. Turn on **Demo mode**
-4. Run **System check**
-5. Click **Run analysis**
+The **Live Backend** page expects the FastAPI backend to be running on `http://127.0.0.1:8000` unless you override the base URL in the page controls.
