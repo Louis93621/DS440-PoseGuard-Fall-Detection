@@ -42,6 +42,12 @@ The training pipeline prepares the baseline fall detector from skeleton keypoint
 
 This stage is used to train and freeze the model once. The bundled artifact is then reused by the real-time backend and the local product console.
 
+### 📦 Model Weights (Important)
+Due to GitHub's file size limits, the pre-trained baseline model (`baseline_bundle.joblib`) is hosted on OneDrive. 
+
+1. Download the model file from this [[OneDrive Link](https://pennstateoffice365-my.sharepoint.com/:u:/g/personal/yzh5492_psu_edu/IQDUh8x3mTaKRawe1_36jq-sAVZhT_5lvn9P-t-F9RqN-oY?e=Hbif4N)].
+2. Place the downloaded `baseline_bundle.joblib` file inside the `Output/` directory before running the backend.
+
 ### 2) Real-time Backend
 The backend is implemented in **FastAPI** and behaves like an edge event-processing system.
 
