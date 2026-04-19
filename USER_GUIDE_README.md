@@ -143,7 +143,7 @@ PoseGuard is easiest to demo using **two terminals**.
 ```bash
 cd poseguard_backend
 
-python main.py   "../sample_data/Fall/Bed/B_D_0191.mp4"   --baseline-bundle "../Output/baseline_bundle.joblib"   --target-fps 12   --threshold 0.50   --events-db "./data/poseguard_events.db"   --alert-log "./data/poseguard_alerts.jsonl"
+python main.py   "../sample_data/Fall/Bed/B_D_0001.mp4"   --baseline-bundle "../Output/baseline_bundle.joblib"   --target-fps 12   --threshold 0.50   --events-db "./data/poseguard_events.db"   --alert-log "./data/poseguard_alerts.jsonl"
 ```
 
 Useful backend URLs:
@@ -169,12 +169,12 @@ Then open the Streamlit URL shown in the terminal, usually:
 #### Fall test
 A fall demo clip is already available:
 
-- `sample_data/Fall/Bed/B_D_0191.mp4`
+- `sample_data/Fall/Bed/B_D_0001.mp4`
 
 #### No-fall test
 A no-fall validation clip is also included:
 
-- `sample_data/No Fall/Bed/B_N_57.mp4`
+- `sample_data/No Fall/Bed/B_N_60.mp4`
 
 You can swap the backend input path to validate false-positive suppression.
 
