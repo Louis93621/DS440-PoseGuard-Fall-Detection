@@ -40,6 +40,10 @@ The training pipeline prepares the baseline fall detector from skeleton keypoint
 - Output artifacts stored in `Output/`
 - Main deployable artifact: `baseline_bundle.joblib`
 
+**Dataset Acknowledgement:**
+The model is trained using pose sequences derived from the original dataset available at:  
+[Harvard Dataverse: DOI: 10.7910/DVN/75QPKK](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/75QPKK).
+
 This stage is used to train and freeze the model once. The bundled artifact is then reused by the real-time backend and the local product console.
 
 ### 📦 Model Weights (Important)
