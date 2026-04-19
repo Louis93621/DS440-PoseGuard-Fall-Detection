@@ -15,5 +15,5 @@ These files let the backend simulate real-time operation and help validate:
 - sample keypoint CSV files for offline/local testing
 
 ## Recommended demo clips
-- Fall example: `Fall/Bed/B_D_0191.mp4`
-- No-fall example: `No Fall/Bed/B_N_57.mp4`
+- Fall example: `Fall/Bed/B_D_0001.mp4`, `Fall/Bed/B_D_0001.keypoints.csv`
+- No-fall example: `No Fall/Bed/B_N_60.mp4`, `No Fall/Bed/B_N_60.keypoints.csv`
