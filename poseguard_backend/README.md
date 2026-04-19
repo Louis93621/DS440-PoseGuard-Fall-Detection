@@ -25,8 +25,14 @@ The backend simulates a live fall detection service using:
 - `reviewer_dashboard/` — static frontend served by FastAPI
 
 ## Run
+
+### Fall
 ```bash
-python main.py "../sample_data/Fall/Bed/B_D_0191.mp4"   --baseline-bundle "../Output/baseline_bundle.joblib"   --target-fps 12   --threshold 0.50   --events-db "./data/poseguard_events.db"   --alert-log "./data/poseguard_alerts.jsonl"
+python main.py "../sample_data/Fall/Bed/B_D_0001.mp4"   --baseline-bundle "../Output/baseline_bundle.joblib"   --target-fps 12   --threshold 0.50   --events-db "./data/poseguard_events.db"   --alert-log "./data/poseguard_alerts.jsonl"
+```
+### No Fall
+```bash
+python main.py "../sample_data/Fall/Bed/B_N_60.mp4"   --baseline-bundle "../Output/baseline_bundle.joblib"   --target-fps 12   --threshold 0.50   --events-db "./data/poseguard_events.db"   --alert-log "./data/poseguard_alerts.jsonl"
 ```
 
 ## Review URLs
